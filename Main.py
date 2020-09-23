@@ -1,10 +1,14 @@
-from list_maker import full_sim
+from execute import execute
 
+# Paste Google Docs selection here!
 raw_google_docs_string = \
-'''PASTE GOOGLE DOCS STRING HERE!'''
+'''INPUT GOOGLE SHEET TICK CONTENT'''
 
-tick_increment = 5;
-iterations = 1000;
+# Edit these variables to whatever you like.
+iterations = 100000; 
+tick_increment = 1;
 debug_mode = False;
 
-full_sim()
+
+# Main execute function don't touch Kitsch! fk u spastic
+execute(raw_google_docs_string, iterations, tick_increment, debug_mode)

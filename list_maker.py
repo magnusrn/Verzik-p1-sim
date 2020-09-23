@@ -1,3 +1,16 @@
+# MAIN FUNC
+# Returns a list of players and their actions. Output should be fed into dictionary_maker().
+def list_maker(raw_string, debug_mode = False):
+  unfiltered_list = create_unfiltered_list(raw_string)
+  filtered_list = filter_list(unfiltered_list)
+  list_of_players = list_splitter(filtered_list)
+  # Debugging
+  if (debug_mode):
+    print("DEBUGGING MODE ON\n")
+    for i in range(len(list_of_players)):
+      print(f"Player {i + 1} attack list: {list_of_players[i]}")
+    print("\n")
+  return list_of_players
 
 
 # Turns raw string into a list with tabs replaced with underscores.
@@ -6,6 +19,7 @@ def create_unfiltered_list(raw_string):
   replaced_string = raw_string.replace("\t", "_")
   unfiltered_list  = list(replaced_string)
   return unfiltered_list
+
 
 # Removes excess underscores from list such that each index in the list = 1 tick.
 def filter_list(unfiltered_list):
@@ -40,21 +54,3 @@ def list_splitter(filtered_list):
       master_list.append(sublist)
       sublist = []
   return master_list
-
-
-
-
-
-
-
-
-# Create list of lists from raw string
-unfiltered_list = create_unfiltered_list(all_spec_roles_raw)
-filtered_list = filter_list(unfiltered_list)
-list_of_players = list_splitter(filtered_list)
-
-
-all_attack_dictionaries = attack_dict_collector(list_of_players, tick_increment)
-
-def full_sim():
-  final_simulator(all_attack_dictionaries)
