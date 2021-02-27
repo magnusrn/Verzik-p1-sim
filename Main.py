@@ -10,5 +10,5 @@ tick_increment = 1;
 debug_mode = False;
 
 
-# Main execute function don't touch Kitsch! fk u spastic
+# Main execute function
 execute(raw_google_docs_string, iterations, tick_increment, debug_mode)
